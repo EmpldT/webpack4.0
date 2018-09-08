@@ -1,0 +1,1 @@
+module.exports='hello stupid boy';
