@@ -2,9 +2,12 @@ let path=require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let cleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports={
-    entry:'./src/index.js',
+    entry:{
+        index:'./src/index.js',
+        a:'./src/a.js'
+    },
     output:{
-        filename:'bundle.[hash:8].js',
+        filename:'[name].[hash:8].js',
         path:path.resolve('./build')
     },
     devServer:{
@@ -17,9 +20,18 @@ module.exports={
     plugins:[
         new cleanWebpackPlugin(['./build']),
         new HtmlWebpackPlugin({
+            filename:'a.html',
             template:'./src/index.html',
             title:'忽了个大悠',
-            hash:true
+            hash:true,
+            chunks:['a']
+        }),
+        new HtmlWebpackPlugin({
+            filename:'i.html',
+            template:'./src/index.html',
+            title:'忽了个大悠',
+            hash:true,
+            chunks:['index']
         })
     ],
     mode:'development',

@@ -1,2 +1,1 @@
-let str = require('./a.js');
-console.log(str+1);
+console.log('index.js')

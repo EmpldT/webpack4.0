@@ -1,1 +1,1 @@
-module.exports='hello stupid boy';
+console.log('a.js')
